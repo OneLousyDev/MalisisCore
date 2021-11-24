@@ -76,10 +76,10 @@ public class TextureMapTransformer extends MalisisClassTransformer
 		InsnList insert = new InsnList();
 		insert.add(new VarInsnNode(ALOAD, 3));
 		insert.add(width.getInsnNode(INVOKEVIRTUAL));
-		insert.add(new FieldInsnNode(PUTSTATIC, "net/malisis/core/renderer/icon/Icon", "BLOCK_TEXTURE_WIDTH", "I"));
+		insert.add(new FieldInsnNode(PUTSTATIC, "broken/core/renderer/icon/Icon", "BLOCK_TEXTURE_WIDTH", "I"));
 		insert.add(new VarInsnNode(ALOAD, 3));
 		insert.add(height.getInsnNode(INVOKEVIRTUAL));
-		insert.add(new FieldInsnNode(PUTSTATIC, "net/malisis/core/renderer/icon/Icon", "BLOCK_TEXTURE_HEIGHT", "I"));
+		insert.add(new FieldInsnNode(PUTSTATIC, "broken/core/renderer/icon/Icon", "BLOCK_TEXTURE_HEIGHT", "I"));
 
 		ah.jumpToEnd().jump(-2).insert(insert);
 

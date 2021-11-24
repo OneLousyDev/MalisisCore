@@ -57,13 +57,13 @@ public class MalisisCoreTransformer extends MalisisClassTransformer
 
 		LabelNode falseLabel = new LabelNode();
 		InsnList insert1 = new InsnList();
-		insert1.add(new TypeInsnNode(NEW, "net/malisis/core/event/user/UserAttackEvent"));
+		insert1.add(new TypeInsnNode(NEW, "broken/core/event/user/UserAttackEvent"));
 		insert1.add(new InsnNode(DUP));
 		insert1.add(new VarInsnNode(ALOAD, 1));
 		insert1.add(new VarInsnNode(ALOAD, 2));
-		insert1.add(new MethodInsnNode(INVOKESPECIAL, "net/malisis/core/event/user/UserAttackEvent", "<init>",
+		insert1.add(new MethodInsnNode(INVOKESPECIAL, "broken/core/event/user/UserAttackEvent", "<init>",
 				"(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/entity/Entity;)V"));
-		insert1.add(new MethodInsnNode(INVOKEVIRTUAL, "net/malisis/core/event/user/UserAttackEvent", "post", "()Z"));
+		insert1.add(new MethodInsnNode(INVOKEVIRTUAL, "broken/core/event/user/UserAttackEvent", "post", "()Z"));
 		insert1.add(new JumpInsnNode(IFEQ, falseLabel));
 		insert1.add(new InsnNode(RETURN));
 		insert1.add(falseLabel);
@@ -85,10 +85,10 @@ public class MalisisCoreTransformer extends MalisisClassTransformer
 		LabelNode falseLabel = new LabelNode();
 		// if(new KeyboardEvent().post())
 		InsnList insert1 = new InsnList();
-		insert1.add(new TypeInsnNode(NEW, "net/malisis/core/event/user/KeyboardEvent"));
+		insert1.add(new TypeInsnNode(NEW, "broken/core/event/user/KeyboardEvent"));
 		insert1.add(new InsnNode(DUP));
-		insert1.add(new MethodInsnNode(INVOKESPECIAL, "net/malisis/core/event/user/KeyboardEvent", "<init>", "()V"));
-		insert1.add(new MethodInsnNode(INVOKEVIRTUAL, "net/malisis/core/event/user/KeyboardEvent", "post", "()Z"));
+		insert1.add(new MethodInsnNode(INVOKESPECIAL, "broken/core/event/user/KeyboardEvent", "<init>", "()V"));
+		insert1.add(new MethodInsnNode(INVOKEVIRTUAL, "broken/core/event/user/KeyboardEvent", "post", "()Z"));
 		insert1.add(new JumpInsnNode(IFNE, falseLabel));
 
 		// L1844: KeyBinding.setKeyBindState(Keyboard.getEventKey(), Keyboard.getEventKeyState());

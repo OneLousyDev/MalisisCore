@@ -73,7 +73,7 @@ public class ChunkCollisionTransformer extends MalisisClassTransformer
 		//ALOAD 1 param1 (entity)
 		InsnList insert = new InsnList();
 		insert.add(new MethodInsnNode(	INVOKESTATIC,
-										"net/malisis/core/util/chunkcollision/ChunkCollision",
+                "broken/core/util/chunkcollision/ChunkCollision",
 										"get",
 										"()Lnet/malisis/core/util/chunkcollision/ChunkCollision;"));
 		insert.add(new VarInsnNode(ALOAD, 0));
@@ -81,7 +81,7 @@ public class ChunkCollisionTransformer extends MalisisClassTransformer
 		insert.add(new VarInsnNode(ALOAD, 3));
 		insert.add(new VarInsnNode(ALOAD, 1));
 		insert.add(new MethodInsnNode(	INVOKEVIRTUAL,
-										"net/malisis/core/util/chunkcollision/ChunkCollision",
+                "broken/core/util/chunkcollision/ChunkCollision",
 										"getCollisionBoxes",
 										"(Lnet/minecraft/world/World;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/entity/Entity;)V"));
 
@@ -110,7 +110,7 @@ public class ChunkCollisionTransformer extends MalisisClassTransformer
 																"(Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;ZZZ)Lnet/minecraft/util/math/RayTraceResult;");
 		McpMethodMapping getRayTraceResult = new McpMethodMapping(	"getRayTraceResult",
 																	"getRayTraceResult",
-																	"net/malisis/core/util/chunkcollision/ChunkCollision",
+                "broken/core/util/chunkcollision/ChunkCollision",
 																	"(Lnet/minecraft/world/World;Lorg/apache/commons/lang3/tuple/Pair;Lnet/minecraft/util/math/RayTraceResult;ZZZ)Lnet/minecraft/util/math/RayTraceResult;");
 
 		AsmHook ah = new AsmHook(rayTraceBlocks);
@@ -118,13 +118,13 @@ public class ChunkCollisionTransformer extends MalisisClassTransformer
 		//setRayTraceInfos(Lnet/minecraft/world/World;Lnet/minecraft/util/Vec3d;Lnet/minecraft/util/Vec3;)V
 		InsnList setRayTraceInfos = new InsnList();
 		setRayTraceInfos.add(new MethodInsnNode(INVOKESTATIC,
-												"net/malisis/core/util/chunkcollision/ChunkCollision",
+                "broken/core/util/chunkcollision/ChunkCollision",
 												"get",
 												"()Lnet/malisis/core/util/chunkcollision/ChunkCollision;"));
 		setRayTraceInfos.add(new VarInsnNode(ALOAD, 1));
 		setRayTraceInfos.add(new VarInsnNode(ALOAD, 2));
 		setRayTraceInfos.add(new MethodInsnNode(INVOKEVIRTUAL,
-												"net/malisis/core/util/chunkcollision/ChunkCollision",
+                "broken/core/util/chunkcollision/ChunkCollision",
 												"setRayTraceInfos",
 												"(Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;)Lorg/apache/commons/lang3/tuple/Pair;"));
 		setRayTraceInfos.add(new VarInsnNode(ASTORE, 42));
@@ -140,7 +140,7 @@ public class ChunkCollisionTransformer extends MalisisClassTransformer
 		//getRayTraceResult(World world, MovingObjectPosition mop, Vec3 src, Vec3 dest)
 		InsnList insertMop = new InsnList();
 		insertMop.add(new MethodInsnNode(	INVOKESTATIC,
-											"net/malisis/core/util/chunkcollision/ChunkCollision",
+                "broken/core/util/chunkcollision/ChunkCollision",
 											"get",
 											"()Lnet/malisis/core/util/chunkcollision/ChunkCollision;"));
 		insertMop.add(new VarInsnNode(ALOAD, 0));
@@ -179,7 +179,7 @@ public class ChunkCollisionTransformer extends MalisisClassTransformer
 		//getRayTraceResult(World world, MovingObjectPosition mop, Vec3d src, Vec3d dest)
 		InsnList insertMop1 = new InsnList();
 		insertMop1.add(new MethodInsnNode(	INVOKESTATIC,
-											"net/malisis/core/util/chunkcollision/ChunkCollision",
+                "broken/core/util/chunkcollision/ChunkCollision",
 											"get",
 											"()Lnet/malisis/core/util/chunkcollision/ChunkCollision;"));
 		insertMop1.add(new VarInsnNode(ALOAD, 0));
@@ -259,7 +259,7 @@ public class ChunkCollisionTransformer extends MalisisClassTransformer
 		InsnList insert = new InsnList();
 		LabelNode label = new LabelNode();
 		insert.add(new MethodInsnNode(	INVOKESTATIC,
-										"net/malisis/core/util/chunkcollision/ChunkCollision",
+                "broken/core/util/chunkcollision/ChunkCollision",
 										"get",
 										"()Lnet/malisis/core/util/chunkcollision/ChunkCollision;"));
 		insert.add(new VarInsnNode(ALOAD, 1)); //player,
@@ -270,7 +270,7 @@ public class ChunkCollisionTransformer extends MalisisClassTransformer
 		insert.add(new VarInsnNode(ALOAD, 4)); //hand,
 		insert.add(new VarInsnNode(ALOAD, 5)); //side,
 		insert.add(new MethodInsnNode(	INVOKEVIRTUAL,
-										"net/malisis/core/util/chunkcollision/ChunkCollision",
+                "broken/core/util/chunkcollision/ChunkCollision",
 										"canPlaceBlockAt",
 										"(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;Lnet/minecraft/block/Block;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumHand;Lnet/minecraft/util/EnumFacing;)Z"));
 		insert.add(new JumpInsnNode(IFNE, label));
@@ -341,7 +341,7 @@ public class ChunkCollisionTransformer extends MalisisClassTransformer
 		insert.add(new VarInsnNode(ALOAD, 3)); //pos
 		insert.add(getBlockState.getInsnNode(INVOKEVIRTUAL));//getBlockState()
 		insert.add(getBlock.getInsnNode(INVOKEINTERFACE));//getBlock()
-		insert.add(new TypeInsnNode(INSTANCEOF, "net/malisis/core/util/chunkcollision/IChunkCollidable")); //instanceof IChunkCollidable
+		insert.add(new TypeInsnNode(INSTANCEOF, "broken/core/util/chunkcollision/IChunkCollidable")); //instanceof IChunkCollidable
 		insert.add(new JumpInsnNode(IFEQ, label));
 		insert.add(new InsnNode(DCONST_0));
 		insert.add(new VarInsnNode(DSTORE, 11));

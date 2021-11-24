@@ -116,11 +116,11 @@ public class ChunkBlockTransformer extends MalisisClassTransformer
 		insert.add(new VarInsnNode(ALOAD, 2));
 		insert.add(new MethodInsnNode(
 				INVOKESTATIC,
-				"net/malisis/core/registry/Registries",
+                "broken/core/registry/Registries",
 				"processPreSetBlock",
 				"(Lnet/minecraft/world/chunk/Chunk;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/block/state/IBlockState;)Lnet/malisis/core/util/callback/CallbackResult;",
 				false));
-		insert.add(new MethodInsnNode(INVOKEVIRTUAL, "net/malisis/core/util/callback/CallbackResult", "shouldReturn", "()Z", false));
+		insert.add(new MethodInsnNode(INVOKEVIRTUAL, "broken/core/util/callback/CallbackResult", "shouldReturn", "()Z", false));
 		insert.add(new JumpInsnNode(IFEQ, falseLabel));
 		insert.add(new InsnNode(ACONST_NULL));
 		insert.add(new InsnNode(ARETURN));
@@ -134,7 +134,7 @@ public class ChunkBlockTransformer extends MalisisClassTransformer
 		insert2.add(new VarInsnNode(ALOAD, 2));
 		insert2.add(new MethodInsnNode(
 				INVOKESTATIC,
-				"net/malisis/core/registry/Registries",
+                "broken/core/registry/Registries",
 				"processPostSetBlock",
 				"(Lnet/minecraft/world/chunk/Chunk;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/block/state/IBlockState;)V",
 				false));

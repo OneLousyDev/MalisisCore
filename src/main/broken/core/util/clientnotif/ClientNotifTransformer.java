@@ -66,7 +66,7 @@ public class ClientNotifTransformer extends MalisisClassTransformer
 		insert.add(new VarInsnNode(ALOAD, 1));
 		insert.add(new VarInsnNode(ALOAD, 2));
 		insert.add(new VarInsnNode(ALOAD, 3));
-		insert.add(new MethodInsnNode(INVOKESTATIC, "net/malisis/core/util/clientnotif/ClientNotificationManager", "notify",
+		insert.add(new MethodInsnNode(INVOKESTATIC, "broken/core/util/clientnotif/ClientNotificationManager", "notify",
 				"(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/Block;Lnet/minecraft/util/math/BlockPos;)V"));
 
 		return ah.insert(insert);
@@ -84,7 +84,7 @@ public class ClientNotifTransformer extends MalisisClassTransformer
 
 		//ClientNotificationManager.sendNeighborNotification(this);
 		insert.add(new VarInsnNode(ALOAD, 0));
-		insert.add(new MethodInsnNode(INVOKESTATIC, "net/malisis/core/util/clientnotif/ClientNotificationManager",
+		insert.add(new MethodInsnNode(INVOKESTATIC, "broken/core/util/clientnotif/ClientNotificationManager",
 				"sendNeighborNotification", "(Lnet/minecraft/world/World;)V"));
 
 		return ah.jumpToEnd().jump(-2).insert(insert);

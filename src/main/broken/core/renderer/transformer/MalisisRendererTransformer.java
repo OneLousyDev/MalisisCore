@@ -105,17 +105,17 @@ public class MalisisRendererTransformer extends MalisisClassTransformer
 		insert.add(new VarInsnNode(ALOAD, 2));
 		insert.add(new VarInsnNode(ALOAD, 1));
 		insert.add(new MethodInsnNode(	INVOKESTATIC,
-										"net/malisis/core/registry/Registries",
+                "broken/core/registry/Registries",
 										"processRenderBlockCallbacks",
 										"(Lnet/minecraft/client/renderer/BufferBuilder;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;)Lnet/malisis/core/util/callback/CallbackResult;",
 										false));
 		insert.add(new VarInsnNode(ASTORE, 8));
 		insert.add(new VarInsnNode(ALOAD, 8));
-		insert.add(new MethodInsnNode(INVOKEVIRTUAL, "net/malisis/core/util/callback/CallbackResult", "shouldReturn", "()Z", false));
+		insert.add(new MethodInsnNode(INVOKEVIRTUAL, "broken/core/util/callback/CallbackResult", "shouldReturn", "()Z", false));
 		insert.add(new JumpInsnNode(IFEQ, falseLabel));
 		insert.add(new VarInsnNode(ALOAD, 8));
 		insert.add(new MethodInsnNode(	INVOKEVIRTUAL,
-										"net/malisis/core/util/callback/CallbackResult",
+                "broken/core/util/callback/CallbackResult",
 										"getValue",
 										"()Ljava/lang/Object;",
 										false));
@@ -152,7 +152,7 @@ public class MalisisRendererTransformer extends MalisisClassTransformer
 		InsnList insert = new InsnList();
 		insert.add(new VarInsnNode(ALOAD, 3));
 		insert.add(new MethodInsnNode(	INVOKESTATIC,
-										"net/malisis/core/registry/Registries",
+                "broken/core/registry/Registries",
 										"renderItem",
 										"(Lnet/minecraft/item/ItemStack;)Z",
 										false));
@@ -190,18 +190,18 @@ public class MalisisRendererTransformer extends MalisisClassTransformer
 
 		LabelNode falseLabel = new LabelNode();
 		InsnList insert = new InsnList();
-		insert.add(new LdcInsnNode(Type.getObjectType("net/malisis/core/renderer/icon/provider/IIconProvider")));
+		insert.add(new LdcInsnNode(Type.getObjectType("broken/core/renderer/icon/provider/IIconProvider")));
 		insert.add(new VarInsnNode(ALOAD, 1));
 		insert.add(getBlock.getInsnNode(INVOKEINTERFACE));
 		insert.add(new MethodInsnNode(	INVOKESTATIC,
-										"net/malisis/core/block/IComponent",
+                "broken/core/block/IComponent",
 										"getComponent",
 										"(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;",
 										false));
 		insert.add(new JumpInsnNode(IFNULL, falseLabel));
 		insert.add(new VarInsnNode(ALOAD, 1));
 		insert.add(new MethodInsnNode(	INVOKESTATIC,
-										"net/malisis/core/registry/Registries",
+                "broken/core/registry/Registries",
 										"getParticleIcon",
 										"(Lnet/minecraft/block/state/IBlockState;)Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;",
 										false));
